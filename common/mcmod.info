@@ -1,0 +1,20 @@
+[
+{
+  "modid": "rn_afk",
+  "name": "AFK",
+  "description": "AFK mod",
+  "version": "0.1",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "rhilenova"
+  ],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
