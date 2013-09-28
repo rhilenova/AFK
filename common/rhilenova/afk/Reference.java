@@ -9,9 +9,4 @@ public class Reference
 	
 	public static final String CLIENT_PROXY_CLASS = "rhilenova.afk.proxy.CommonProxy";
 	public static final String SERVER_PROXY_CLASS = "rhilenova.afk.proxy.CommonProxy";
-	
-	public static final int INIT_AFK = 0;
-	public static final int TOGGLE_AFK = 1;
-	public static final int REQUEST_AFK = 2;
-	public static final int AFK_RESULTS = 3;
 }

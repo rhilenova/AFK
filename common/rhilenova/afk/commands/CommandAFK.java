@@ -19,12 +19,18 @@ public class CommandAFK extends CommandBase
 	}
 
 	@Override
+	public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
+    {
+        return true;
+    }
+	
+	@Override
 	public void processCommand(ICommandSender icommandsender, String[] astring)
 	{
 		if(icommandsender instanceof EntityPlayer)
         {
-                EntityPlayer player = (EntityPlayer)icommandsender;
-                RN_AFK.toggleAFK(player.username);
+            EntityPlayer player = (EntityPlayer)icommandsender;
+            RN_AFK.toggleAFK(player.username);
         }
 	}
 }
