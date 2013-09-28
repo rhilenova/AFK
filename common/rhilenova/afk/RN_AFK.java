@@ -7,8 +7,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.Init;
+import cpw.mods.fml.common.Mod.PostInit;
+import cpw.mods.fml.common.Mod.ServerStarting;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -36,13 +38,13 @@ public class RN_AFK
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
 	
-	@EventHandler
+	@Init
     public void load(FMLInitializationEvent event)
     {
 		NetworkRegistry.instance().registerConnectionHandler(new AFKConnectionHandler());
     }
 	
-	@EventHandler
+	@PostInit
     public void load(FMLPostInitializationEvent event)
 	{
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
@@ -51,7 +53,7 @@ public class RN_AFK
         }
 	}
 	
-	@EventHandler
+	@ServerStarting
 	public void serverStart(FMLServerStartingEvent event)
 	{
 		ServerCommandManager manager = (ServerCommandManager)MinecraftServer.getServer().getCommandManager();
