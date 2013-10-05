@@ -4,6 +4,7 @@ import java.util.HashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -27,6 +28,9 @@ import rhilenova.afk.proxy.CommonProxy;
 @NetworkMod(channels = {Reference.MOD_CHANNEL}, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
 public class RN_AFK
 {
+	public static final ResourceLocation afk_icon =
+		new ResourceLocation(Reference.MOD_ID.toLowerCase(), "textures/gui/afk_icon.png");
+	
 	@Instance(Reference.MOD_ID)
     public static RN_AFK instance;
 	
