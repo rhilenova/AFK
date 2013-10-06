@@ -1,6 +1,7 @@
 package rhilenova.afk;
 
 import java.util.HashMap;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
@@ -32,8 +33,7 @@ public class RN_AFK
 	@Instance(Reference.MOD_ID)
     public static RN_AFK instance;
 	
-	public static HashMap<String, Boolean> afk_status =
-		new HashMap<String, Boolean>();
+	public HashMap<String, Boolean> afk_status = new HashMap<String, Boolean>();
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
@@ -58,35 +58,5 @@ public class RN_AFK
 	{
 		ServerCommandManager manager = (ServerCommandManager)MinecraftServer.getServer().getCommandManager();
 		manager.registerCommand(new CommandAFK());
-	}
-
-	public static void initAFK(String username)
-	{
-		afk_status.put(username, false);
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
-		{
-			PacketHandler.sendAFK(username, PacketHandler.INIT_AFK);
-		}
-	}
-	
-	public static void toggleAFK(String username)
-	{
-		Boolean is_afk = false;
-		if (afk_status.containsKey(username)) is_afk = afk_status.get(username);
-		
-		afk_status.put(username, !is_afk);
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
-		{
-			PacketHandler.sendAFK(username, PacketHandler.TOGGLE_AFK);
-		}
-	}
-
-	public static void removeAFK(String username)
-	{
-		afk_status.remove(username);
-		if (FMLCommonHandler.instance().getEffectiveSide() == Side.SERVER)
-		{
-			PacketHandler.sendAFK(username, PacketHandler.REMOVE_AFK);
-		}
 	}
 }

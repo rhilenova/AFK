@@ -43,7 +43,7 @@ public class GuiAFKPlayerList extends Gui
 				while (iter.hasNext())
 				{
 					GuiPlayerInfo player = iter.next();
-								if(RN_AFK.afk_status.containsKey(player.name) && RN_AFK.afk_status.get(player.name))
+								if(RN_AFK.instance.afk_status.containsKey(player.name) && RN_AFK.instance.afk_status.get(player.name))
 					{
 						FontRenderer fontrenderer = mc.fontRenderer;
 						

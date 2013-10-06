@@ -28,9 +28,9 @@ public class AFKConnectionHandler implements IConnectionHandler
 	{
 		EntityPlayerMP player_mp = (EntityPlayerMP) player;
 		String username = player_mp.username;
-		//System.out.println("----------" + username + " logged in.----------");
 		clients.put(manager.getSocketAddress(), username);
-		RN_AFK.initAFK(username);
+		RN_AFK.proxy.initAFK(username);
+		PacketHandler.sendAFKList(player);
 	}
 
 	@Override
@@ -58,8 +58,7 @@ public class AFKConnectionHandler implements IConnectionHandler
 		SocketAddress user_address = manager.getSocketAddress();
 		if (clients.containsKey(user_address))
 		{
-			//System.out.println("----------" + clients.get(user_address) + " disconnected.----------");
-			RN_AFK.removeAFK(clients.get(user_address));
+			RN_AFK.proxy.removeAFK(clients.get(user_address));
 			clients.remove(user_address);
 		}
 	}
