@@ -30,7 +30,7 @@ public class CommandAFK extends CommandBase
 		if(icommandsender instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer)icommandsender;
-            RN_AFK.toggleAFK(player.username);
+            RN_AFK.proxy.toggleAFK(player.username);
         }
 	}
 }

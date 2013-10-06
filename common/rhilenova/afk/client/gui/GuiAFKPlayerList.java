@@ -77,7 +77,7 @@ public class GuiAFKPlayerList extends Gui
                     ScorePlayerTeam team = mc.theWorld.getScoreboard().getPlayersTeam(player.name);
                     String displayName = player.name;
                     int namePos = xPos;
-                    if (RN_AFK.afk_status.containsKey(player.name) && RN_AFK.afk_status.get(player.name))
+                    if (RN_AFK.instance.afk_status.containsKey(player.name) && RN_AFK.instance.afk_status.get(player.name))
                     {
                     	displayName = EnumChatFormatting.ITALIC + displayName;
                     	mc.getTextureManager().bindTexture(RN_AFK.afk_icon);
