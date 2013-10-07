@@ -7,6 +7,7 @@ import rhilenova.afk.RN_AFK;
 
 public class ClientProxy extends CommonProxy
 {
+	@Override
 	public void receiveAFKList(List<String> afk_users)
 	{
 		Iterator<String> iter = afk_users.iterator();

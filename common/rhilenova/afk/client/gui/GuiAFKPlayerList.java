@@ -29,7 +29,7 @@ public class GuiAFKPlayerList extends Gui
 	}
 	
 	@ForgeSubscribe(priority = EventPriority.NORMAL)
-	public void onRenderTODO(RenderGameOverlayEvent event)
+	public void onRenderPlayerList(RenderGameOverlayEvent event)
 	{
 		ScaledResolution res = new ScaledResolution(mc.gameSettings, mc.displayWidth, mc.displayHeight);
         int width = res.getScaledWidth();
