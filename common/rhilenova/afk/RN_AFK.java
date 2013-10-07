@@ -24,6 +24,7 @@ import rhilenova.afk.commands.CommandAFK;
 import rhilenova.afk.network.AFKConnectionHandler;
 import rhilenova.afk.network.PacketHandler;
 import rhilenova.afk.proxy.CommonProxy;
+import rhilenova.afk.timer.AFKTimer;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION_NUMBER)
 @NetworkMod(channels = {Reference.MOD_CHANNEL}, clientSideRequired = true, serverSideRequired = true, packetHandler = PacketHandler.class)
@@ -52,6 +53,7 @@ public class RN_AFK
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
         {
         	MinecraftForge.EVENT_BUS.register(new GuiAFKPlayerList(Minecraft.getMinecraft()));
+        	MinecraftForge.EVENT_BUS.register(new AFKTimer(Minecraft.getMinecraft()));
         }
 	}
 	
